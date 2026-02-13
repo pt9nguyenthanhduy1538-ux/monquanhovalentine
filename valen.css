@@ -1,9 +1,15 @@
+:root {
+  --sat: env(safe-area-inset-top, 0px);
+  --sar: env(safe-area-inset-right, 0px);
+  --sab: env(safe-area-inset-bottom, 0px);
+  --sal: env(safe-area-inset-left, 0px);
+}
+
 body,
 html {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  /* Opened to auto via JS later */
   background-color: black;
 }
 
@@ -14,12 +20,11 @@ html {
 #bear {
   position: fixed;
   left: 10px;
-  bottom: 50px;
+  bottom: calc(50px + var(--sab));
   width: 110px;
   z-index: 10;
   transition: filter 0.2s ease, transform 0.2s ease, opacity 2s ease-in;
   opacity: 0;
-  /* Start hidden for fade-in */
 }
 
 #bear:hover {
@@ -59,6 +64,13 @@ html {
   align-items: center;
   z-index: 100;
   transition: opacity 0.8s ease-out;
+
+  /* safe-area padding */
+  padding-top: var(--sat);
+  padding-right: var(--sar);
+  padding-bottom: var(--sab);
+  padding-left: var(--sal);
+  box-sizing: border-box;
 }
 
 .gift-box {
@@ -75,8 +87,6 @@ html {
   filter: drop-shadow(0 0 20px rgba(255, 255, 200, 0.8)) brightness(1.2);
 }
 
-
-
 .tap-hint {
   margin-top: 50px;
   color: #fff;
@@ -85,8 +95,6 @@ html {
   opacity: 0.8;
   animation: pulse 1.5s infinite;
 }
-
-
 
 @keyframes float {
 
