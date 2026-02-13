@@ -1,0 +1,139 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  /* Opened to auto via JS later */
+  background-color: black;
+}
+
+#canvas {
+  display: block;
+}
+
+#bear {
+  position: fixed;
+  left: 10px;
+  bottom: 50px;
+  width: 110px;
+  z-index: 10;
+  transition: filter 0.2s ease, transform 0.2s ease, opacity 2s ease-in;
+  opacity: 0;
+  /* Start hidden for fade-in */
+}
+
+#bear:hover {
+  width: 112px;
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+#rotateNotice .overlay {
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(10, 0, 30, 0.95);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  text-align: center;
+  padding: 20px;
+}
+
+/* Gift Box Styles */
+#giftOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: radial-gradient(circle, #1a0033 0%, #000000 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+  transition: opacity 0.8s ease-out;
+}
+
+.gift-box {
+  position: relative;
+  width: 250px;
+  height: 250px;
+  cursor: pointer;
+  animation: float 3s ease-in-out infinite;
+  transition: filter 0.3s ease;
+}
+
+.gift-box:hover {
+  animation: shake 0.5s cubic-bezier(.36, .07, .19, .97) both infinite;
+  filter: drop-shadow(0 0 20px rgba(255, 255, 200, 0.8)) brightness(1.2);
+}
+
+
+
+.tap-hint {
+  margin-top: 50px;
+  color: #fff;
+  font-family: 'Arial', sans-serif;
+  font-size: 1.5rem;
+  opacity: 0.8;
+  animation: pulse 1.5s infinite;
+}
+
+
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes shake {
+
+  10%,
+  90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+
+  20%,
+  80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%,
+  50%,
+  70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%,
+  60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
+
+@keyframes pulse {
+
+  0%,
+  100% {
+    opacity: 0.5;
+    transform: scale(0.95);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
