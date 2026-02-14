@@ -65,7 +65,7 @@ html {
   z-index: 100;
   transition: opacity 0.8s ease-out;
 
-  /* safe-area padding */
+  /* safe padding */
   padding-top: var(--sat);
   padding-right: var(--sar);
   padding-bottom: var(--sab);
